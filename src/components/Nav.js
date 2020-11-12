@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 
 function Nav() {
   return (
-      <Navbar className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <Navbar className="navbar navbar-collapse navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
         <Link className="nav-link" to={"/home"}>
                  Studio Search

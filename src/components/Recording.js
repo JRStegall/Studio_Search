@@ -47,9 +47,9 @@ if (products) {
             <br />
             {item.zip_code}
             <br/>
-            {item.web_site}
+            <a href={item.website} target="_blank">{item.website}</a>
             <br/>
-            {item.phone_number}
+    <a href={item.phone_number}>{item.phone_number}</a>
           </Card.Text>
 
          {/* <Button variant="primary" onclick="">Add To Cart</Button>*/}

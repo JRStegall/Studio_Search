@@ -31,11 +31,13 @@ function App() {
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
-                <h1>Studio Search</h1>
+                <Home/>
               </div>
 
               <div className="row">
-                {/*<Recording />*/}
+                <div className="col-8">
+                <Recording />
+                </div>
               </div>
             </div>
           </div>

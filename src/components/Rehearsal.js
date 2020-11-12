@@ -31,10 +31,10 @@ function RehearsalStudios() {
         products.product.forEach((item) => {
             if (item.is_deleted !== true)
                 items.push(
-                    <Container className="container">
+                    <Container >
                         
                         <Col >
-                            <Card style={{ width: '18rem' }} >
+                            <Card style={{ width: '18rem' }} className="card">
                                 <Card.Img variant="top" style={{ width: '18rem' }} src={item.image} />
                                 <Card.Body>
                                     <Card.Title>{item.name}</Card.Title>
@@ -48,7 +48,7 @@ function RehearsalStudios() {
                                         <br />
                                         {item.zip_code}
                                         <br />
-                                        {item.web_site}
+                                        <a href={item.website} target="_blank">{item.website}</a>
                                         <br />
                                         {item.phone_number}
                                     </Card.Text>
