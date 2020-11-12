@@ -1,3 +1,8 @@
+# Studio Search
+
+This is an app that queries a database to find recording and rehearsal studios in the Atlanta area.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
