@@ -6,7 +6,15 @@ const session = require('express-session');
 const cors = require('cors');
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
+const aws = require('aws-sdk');
 
+let s3 = new aws.S3({
+    accessKeyId: (process.env && process.env.S3_KEY) ? process.env.S3_KEY : 'locals3key',
+    secretAccessKey: (process.env && process.env.S3_SECRET) ? process.env.S3_SECRET : 'locals3key'
+  });
+  
+// Step 1: This checks if (process.env && process.env.S3_KEY) exists. If it doesn, it will use process.env.S3_KEY that is assigned in Heroku
+// Step 2: Otherwise it will use whatever value you need for your local host, in the above example is: 'locals3key'
 
 app.get('/', (req, res)=>{
     res.sendFile(__dirname + 'index.html');
