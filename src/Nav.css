@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'Gobold Blocky';
+    src:url('../Font/gobold_blocky/Gobold Blocky Italic WebFont.woff')
+}
+
+ #Nav
+{
+    display: -webkit-inline-box;
+    width: -webkit-fill-available;
+};
+
+.nav-link{   
+    display:inline;
+    position: relative;
+    left: 40px;
+    right: 100px;
+    width: 150px;
+    margin-top:30px;
+    font-size: 20px;
+    font-family: 'Gobold Blocky';
+}
+/* .container{
+
+
+}
+.nav-item
+{
+
+}  */
+
+img{
+    background-color: burlywood;
+    outline: auto;
+    border-bottom:double;
+    position: absolute;
+    left: 20px;
+    margin-top: 3px;
+
+}
