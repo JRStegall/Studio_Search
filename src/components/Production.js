@@ -10,12 +10,12 @@ import CardColumns from 'react-bootstrap/CardColumns'
 import Accordion from 'react-bootstrap/Accordion';
 
 
-function RehearsalStudios() {
+function ProductionStudios() {
 
     const [products, setProducts] = useState(false);
 
     useEffect(() => {
-        const apiUrl = `http://localhost:4000/rehearsal_studios`;
+        const apiUrl = `http://localhost:4000/production_studios`;
         fetch(apiUrl)
             .then((res) => res.json())
             .then((product) => {
@@ -50,8 +50,6 @@ function RehearsalStudios() {
             <br />
             {item.zip_code}
             <br/>
-            <a href={item.map} target="_blank" rel="noreferrer">Map</a>
-            <br />
             <a href={item.website} target="_blank" rel="noreferrer">{item.website}</a>
             <br/>
     <a href='tel:{item.phone_number}'>{item.phone_number}</a>
@@ -81,13 +79,13 @@ function RehearsalStudios() {
 
 }
 
-let Rehearsal = () => (
+let Production = () => (
     <div>
-        <Route path="/rehearsal" component={RehearsalStudios} />
+        <Route path="/production" component={ProductionStudios} />
     </div>
 )
 
 
-export default Rehearsal;
+export default Production;
 
 

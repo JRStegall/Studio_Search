@@ -4,6 +4,23 @@ const promise = require('bluebird');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
 const cors = require('cors');
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
+
+
+app.get('/', (req, res)=>{
+    res.sendFile(__dirname + 'index.html');
+})
+
+io.on('connection', (socket) => {
+    socket.on('chat message', (msg) => {
+      io.emit('chat message', msg);
+    });
+  });
+
+// http.listen(3000, ()=>{
+//     console.log('listening on *:3000');
+// })
 
 app.use(cors());
 
@@ -15,7 +32,7 @@ const portNumber = process.env.PORT || 4000;
 // pg-promise initialization options:
 const initOptions = {
     // Use a custom promise library, instead of the default ES6 Promise:
-    promiseLib : promise,
+    promiseLib: promise,
 };
 
 
@@ -50,22 +67,24 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 
-// Don't need landing page to be referenced as this is strictly backend
-// app.use(express.static(__dirname + '/public'));
 
 // ---------------- Beginning of Routes ---------------- //
 
 
 // -------Get ID, LAT, LNG from database ----------- //
-
-app.get('/recording_studios/:id/:lat/:lng', (req, res) => {
-    db.query(`SELECT id, lat, lng FROM recording_studios 
-    WHERE ${req.params.id} = id, ${req.params.lat} = lat, ${req.params.lng} = lng`)
+app.get('/map', (req, res) => {
+    db.query(`SELECT * FROM recording_studios WHERE recording_studios.lat = '${req.body.lat}' && recording_studios.lng = '${req.body.lng}'`)
         .then((results) => {
-            console.log(results);
-            res.json(results);
-        })
+            db.query(`SELECT * FROM rehearsal_studios WHERE rehearsal_studios.lat = '${req.body.lat}' && rehearsal_studios.lng = '${req.body.lng}'`)
+                .then((results2) => {
+                    let combinedRes = { ...results, ...results2 }
+                    console.log(results);
+                    console.log(results2);
+                    res.json(combinedRes);
+                })
+        });
 })
+
 
 
 // ---------- Recording Stuios ----------//
@@ -89,14 +108,13 @@ app.get('/recording_studios/:id', (req, res) => {
         })
 })
 
-app.get('/recording_studios/:zip_code', (req, res) => {
+app.get('/recording_studios/:name', (req, res) => {
     db.query(`SELECT * FROM recording_studios WHERE ${req.params.zip_code} = zip_code`)
-    .then((results) => {
-        console.log(results);
-        res.json(results);
-    })
+        .then((results) => {
+            console.log(results);
+            res.json(results);
+        })
 })
-
 
 //----------- Rehearsal Studios -----------------//
 // get all items from rehearsal_studios table
@@ -111,6 +129,26 @@ app.get('/rehearsal_studios', (req, res) => {
 // get a single item from rehearsal_studios table
 app.get('/rehearsal_studios/:id', (req, res) => {
     db.query(`SELECT * FROM rehearsal_studios WHERE ${req.params.id} = id`)
+        .then((results) => {
+            console.log(results);
+            res.json(results);
+        })
+})
+
+
+//----------- Production Studios -----------------//
+// get all items from rehearsal_studios table
+app.get('/production_studios', (req, res) => {
+    db.query('SELECT * FROM production_studios')
+        .then((results) => {
+            console.log(results);
+            res.json(results);
+        })
+})
+
+// get a single item from rehearsal_studios table
+app.get('/production_studios/:id', (req, res) => {
+    db.query(`SELECT * FROM production_studios WHERE ${req.params.id} = id`)
         .then((results) => {
             console.log(results);
             res.json(results);
@@ -136,6 +174,39 @@ app.get('/dance_studios/:id', (req, res) => {
             res.json(results);
         })
 })
+
+
+
+//----Search all databases and return result -----//
+
+app.get('/search=:id', (req, res) => {
+    if (req.params.id != '') {
+        db.query(`SELECT * FROM recording_studios WHERE recording_studios.name ='${req.params.id}'`)
+            .then((result) => {
+                db.query(`SELECT * FROM rehearsal_studios WHERE rehearsal_studios.name ='${req.params.id}'`)
+                    .then((results2) => {
+                        db.query(`SELECT * FROM production_studios WHERE production_studios.name = '${req.params.id}'`)
+                            .then((results3) => {
+                                db.query(`SELECT * FROM dance_studios WHERE dance_studios.name = '${req.params.id}'`)
+                                    .then((results4) => {
+                                        var combinedRes = { ...result, ...results2, ...results3, ...results4 }
+                                        console.log(result);
+                                        console.log(results2)
+                                        console.log(results3)
+                                        console.log(results4)
+                                        res.json(combinedRes);
+                                    });
+                            });
+                    });
+            });
+    }
+    else {
+        res.send("No studios match your search!");
+    }
+});
+
+
+
 
 /*
 // add item to inventory table
@@ -206,36 +277,36 @@ app.post('/register', (req, res) => {
 
 
 // login for user
-app.get('/login', (req, res) => {
+app.post('/login', (req, res) => {
     //console.log(req);
     if (!req.body.email) {
         res.status(404).send("Email is required");
     }
-    if (!req.body.password) {
+    if (!req.body.pw) {
         res.status(404).send("Password is required");
     }
 
     db.query(`SELECT * FROM register WHERE email = '${req.body.email}'`)
         .then((results) => {
             // json for postman test
-            //res.json(results);
-            //console.log(results);
+            res.json(results);
+            console.log(results);
 
-            bcrypt.compare(req.body.password, results[0].password, function (err, results) {
+            bcrypt.compare(req.body.password, results[0].pw, function (err, results) {
                 //console.log(req.body.password, results.account_password);
                 //res.send("Yay..logged in");
                 //console.log(results);
                 //console.log(`the results...${results[0].account_password}`);
                 if (results === true) {
                     // assign results from db.query above to a session
-                    
+
                     req.session.user = results;
 
                     console.log(req.session.user);
                     res.send({
-                        "message" : "Ok",
-                        "session" : req.session.user,
-                        "isAuthenticated" : true
+                        "message": "Ok",
+                        "session": req.session.user,
+                        "isAuthenticated": true
                     });
                 } else {
                     res.send("Invalid Credentials");
@@ -257,7 +328,7 @@ function authenticatedMiddleware(req, res, next) {
         next();
     } else { // user is not authenticated send them to login
         console.log('Middleware check...user not authenticated');
-        
+
     }
 }
 

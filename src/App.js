@@ -1,15 +1,19 @@
-import React,{/* { useState } */}from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './Components/Home';
 import Recording from './Components/Recording';
 import Rehearsal from './Components/Rehearsal';
 import Dance from './Components/Dance';
+import Production from './Components/Production';
 import Navigate from './Components/Nav';
 import Login from './Components/Login';
 import Register from './Components/Register';
-import Map from './Components/Map';
+import Search from './Components/Search';
+import Chat from './Components/Chat';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+// {import Register from './Components/Register/Register';
+// }
 // import Form from 'react-bootstrap/Form';
 // import Row from 'react-bootstrap/Row';
 // import Col from 'react-bootstrap/Col';
@@ -32,9 +36,12 @@ function App() {
           <Route path="/recording" component={Recording} />
           <Route path="/rehearsal" component={Rehearsal} />
           <Route path="/dance" component={Dance} />
+          <Route path="/production" component={Production} />
           <Route path="/login" component={Login}/>
           <Route path="/register" component={Register}/>
-          <Route path="/map" component={Map}/>
+          <Route path="/search" component={Search}/>
+          <Route path="/chat" component={Chat}/>
+
 
           <div className="container">
             <div className="row">

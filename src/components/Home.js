@@ -1,12 +1,23 @@
 import React from 'react';
+import Button from 'react-bootstrap/button';
+
 
 
 function Home() {
 
     return(
         <div className="home">
-        <h1>Studio Search</h1>
-        <p>Find a recording or rehearsal studio that fits your needs and budget, right in the palm of your hand!</p>
+            <i className="fas fa-headphones-alt fa-7x"></i>
+        <h1>Sessions</h1>
+        <p>Find studio space that fits your needs and budget from the palm of your hand!</p>
+        
+        <Button variant="primary" type="submit">
+                        <a href="./register">Register</a> 
+            </Button>
+
+             <Button className="loginbtn" variant="primary" type="submit"><a href="./login">Log In</a>
+            </Button>
+
         </div>
     )
 } 

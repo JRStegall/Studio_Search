@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { Route } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Axios from 'axios';
 
 
-function Login() {
+function LoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     //const [auth, setAuth] = useState(false);
@@ -12,7 +13,7 @@ function Login() {
 
     //get response from '/login' route from backend index.js
     function handleSubmit(event) {
-        Axios.post(`http://localhost:4000/login`, {
+        Axios.post(`http://localhost:4000/register`, {
             email: email,
             password: password
         })
@@ -25,7 +26,7 @@ function Login() {
                 if (response.data !== 'Invalid Credentials') {
                     localStorage.setItem('token', JSON.stringify(response));
                     alert("You have successfully logged in!")
-                    history.push('/home');
+                    history.push('/');
 
                 } else {
                     alert("Please enter valid credentials");
@@ -42,7 +43,7 @@ function Login() {
     }
 
     return (
-
+        <div className="container">
         <div className="col-sm-6 login-section-wrapper">
             <div className="brand-wrapper">
                 <i className="fas fa-headphones-alt fa-7x"></i>
@@ -61,14 +62,21 @@ function Login() {
                         <input type="password" name="password" id="loginPass" className="form-control"
                             placeholder="enter your passsword" onChange={(e) => setPassword(e.target.value)} />
                     </div>
-                    <input name="login" id="loginBtn" className="btn btn-block login-btn" type="button" value="Login" onClick={handleSubmit} />
+                    <input name="login" id="loginBtn" className="btn btn-block login-btn btn-primary" type="button" value="Login" onClick={handleSubmit} />
                 </form>
 
-                <p className="login-wrapper-footer-text">Don't have an account? <a href="./register/index.html"
+                <p className="login-wrapper-footer-text">Don't have an account? <a href="./register"
                     className="text-reset">Register here</a></p>
             </div>
         </div>
+        </div>
     )
 }
+
+let Login = () => (
+    <div>
+      <Route path="/login" component={LoginPage} />
+    </div>
+  )
 
 export default Login;

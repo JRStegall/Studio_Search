@@ -52,6 +52,7 @@ function Register() {
         <div className="container">
 
             <Col className="col-12 col-lg-8">
+            <i className="fas fa-headphones-alt fa-7x"></i>
                 <h3> Register </h3>
                 <Form>
                     <Form.Row>

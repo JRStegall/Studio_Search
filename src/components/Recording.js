@@ -3,11 +3,11 @@ import { Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-//import Button from 'react-bootstrap/Button';
+import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import CardColumns from 'react-bootstrap/CardColumns'
-
+import Accordion from 'react-bootstrap/Accordion';
 
 
 function RecordingStudios(){
@@ -31,12 +31,15 @@ if (products) {
   products.product.forEach((item) => {
     if( item.is_deleted !== true)
     items.push(
-      <Container className="container">
-      <Col className="col-lg-3 col-xs-8">
-      <Card key={item.id} style={{ width: '18rem' }}>
-        <Card.Img variant="top" style={{ width: '18rem' }} src={item.image} />
+      
+      <Col className="col-lg-3 col-xs-8 ">
+      <Card key={item.id} style={{ width: '15rem' }}>
+        <Card.Img variant="top" style={{ width: '15rem' }} src={item.image} />
         <Card.Body>
           <Card.Title>{item.name}</Card.Title>
+          <Accordion >
+          <Accordion.Toggle as={Button} variant="link" eventKey="0">More Info</Accordion.Toggle>
+          <Accordion.Collapse eventKey="0">
           <Card.Text>
             {item.hourly_rate}
            <br />
@@ -47,26 +50,31 @@ if (products) {
             <br />
             {item.zip_code}
             <br/>
-            <a href={item.website} target="_blank">{item.website}</a>
+            <a href={item.map} target="_blank" rel="noreferrer">Map</a>
+            <br />
+            <a href={item.website} target="_blank" rel="noreferrer">{item.website}</a>
             <br/>
-    <a href={item.phone_number}>{item.phone_number}</a>
+    <a href='tel:{item.phone_number}'>{item.phone_number}</a>
           </Card.Text>
-
-         {/* <Button variant="primary" onclick="">Add To Cart</Button>*/}
+          </Accordion.Collapse>
+          </Accordion>
         </Card.Body>
       </Card>
       </Col>
-      </Container>
+     
     )
   })
 }
 
 return (
-<Row>
-<CardColumns>
+  <Container>
+    <Row>
+<CardColumns className="col-12">
   {items}
 </CardColumns>
 </Row>
+  </Container>
+
 
 )
 
