@@ -26,7 +26,7 @@ function LoginPage() {
                 if (response.data !== 'Invalid Credentials') {
                     localStorage.setItem('token', JSON.stringify(response));
                     alert("You have successfully logged in!")
-                    history.push('/');
+                    
 
                 } else {
                     alert("Please enter valid credentials");
