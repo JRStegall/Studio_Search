@@ -2,13 +2,8 @@
   "name": "studio_db",
   "version": "0.1.0",
   "engines": {
-<<<<<<< HEAD
     "node": "15.1.0",
     "npm": "6.x"
-=======
-    "node" : "15.1.0",
-    "npm" : "6.x" 
->>>>>>> ba7b0803c96b0bcb0b2eee13c8c7abfc1fabf529
   },
   "private": true,
   "dependencies": {
