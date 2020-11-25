@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './Components/Home';
-import Recording from './Components/Recording';
-import Rehearsal from './Components/Rehearsal';
-import Dance from './Components/Dance';
-import Production from './Components/Production';
-import Navigate from './Components/Nav';
-import Login from './Components/Login';
-import Register from './Components/Register';
-import Search from './Components/Search';
-import Chat from './Components/Chat';
+import Home from './components/Home';
+import Recording from './components/Recording';
+import Rehearsal from './components/Rehearsal';
+import Dance from './components/Dance';
+import Production from './components/Production';
+import Navigate from './components/Nav';
+import Login from './components/Login';
+import Register from './components/Register';
+import Search from './components/Search';
+import Chat from './components/Chat';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
