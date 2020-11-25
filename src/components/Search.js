@@ -17,7 +17,7 @@ function Search() {
   function fetchStudios() {
     console.log(search);
     //replace route with set URL//
-    fetch(`http://localhost:4000/search=${search}`)
+    fetch(`https://fathomless-mountain-98798.herokuapp.com/search=${search}`)
       .then(res => res.json())
       .then((results) => {
         console.log(results);

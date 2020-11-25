@@ -17,7 +17,7 @@ function DanceStudios(){
 const [products, setProducts] = useState(false);
 
 useEffect(() => {
-  const apiUrl = `http://localhost:4000/dance_studios`;
+  const apiUrl = `https://fathomless-mountain-98798.herokuapp.com/dance_studios`;
   fetch(apiUrl)
     .then((res) => res.json())
     .then((product) => {

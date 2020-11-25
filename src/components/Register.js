@@ -22,7 +22,7 @@ function Register() {
 
     //get response from '/login' route from backend index.js
     function handleSubmit(event) {
-        Axios.post(`http://localhost:4000/register`, {
+        Axios.post(`https://fathomless-mountain-98798.herokuapp.com/register`, {
             first_name: first_name,
             last_name: last_name,
             address: address,
