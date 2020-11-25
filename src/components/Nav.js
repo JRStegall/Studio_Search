@@ -25,14 +25,14 @@ function Navigate(){
     <Nav className="mr-auto">
       
       <Nav.Link as={Link} className="link" to="/register">Register</Nav.Link>
-      <Nav.Link className="link" href="/login">Log In</Nav.Link>
-      <Nav.Link className="link" href="/search">Search</Nav.Link>
-      <Nav.Link className="link" href="/chat">Chat</Nav.Link>
+      <Nav.Link as={Link} className="link" to="/login">Log In</Nav.Link>
+      <Nav.Link as={Link} className="link" to="/search">Search</Nav.Link>
+      <Nav.Link as={Link} className="link" to="/chat">Chat</Nav.Link>
       <NavDropdown title="Studios" id="basic-nav-dropdown">
-        <NavDropdown.Item href="/recording">Recording Studios</NavDropdown.Item>
-        <NavDropdown.Item href="/rehearsal">Rehearsal Studios</NavDropdown.Item>
-        <NavDropdown.Item href="/production">Production Studios</NavDropdown.Item>
-        <NavDropdown.Item href="/dance">Dance Studios</NavDropdown.Item>
+        <NavDropdown.Item as={Link} to="/recording">Recording Studios</NavDropdown.Item>
+        <NavDropdown.Item as={Link} to="/rehearsal">Rehearsal Studios</NavDropdown.Item>
+        <NavDropdown.Item as={Link} to="/production">Production Studios</NavDropdown.Item>
+        <NavDropdown.Item as={Link} to="/dance">Dance Studios</NavDropdown.Item>
         {/*<NavDropdown.Divider />
         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>*/}
       </NavDropdown>
