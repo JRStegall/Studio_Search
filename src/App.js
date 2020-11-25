@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Recording from './components/Recording';
 import Rehearsal from './components/Rehearsal';
@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div className="App">
-    <Router>
+    {/* <Router> */}
         <Navigate />
         <Switch>
           <Route path="/recording" component={Recording} />
@@ -49,7 +49,7 @@ function App() {
         </Switch>
         
      
-    </Router>
+    {/* </Router> */}
     </div>
   );
 }
