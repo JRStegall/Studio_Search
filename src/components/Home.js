@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 
 
@@ -12,10 +13,10 @@ function Home() {
         <p>Find studio space that fits your needs and budget from the palm of your hand!</p>
         
         <Button variant="primary" type="submit">
-                        <a href="/register">Register</a> 
+                        <Link to="/register">Register</Link> 
             </Button>
 
-             <Button className="loginbtn" variant="primary" type="submit"><a href="/login">Log In</a>
+             <Button className="loginbtn" variant="primary" type="submit"><Link to="/login">Log In</Link>
             </Button>
 
         </div>

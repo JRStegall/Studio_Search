@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 function LoginPage() {
@@ -65,8 +66,8 @@ function LoginPage() {
                     <input name="login" id="loginBtn" className="btn btn-block login-btn btn-primary" type="button" value="Login" onClick={handleSubmit} />
                 </form>
 
-                <p className="login-wrapper-footer-text">Don't have an account? <a href="./register"
-                    className="text-reset">Register here</a></p>
+                <p className="login-wrapper-footer-text">Don't have an account? <Link to="./register"
+                    className="text-reset">Register here</Link></p>
             </div>
         </div>
         </div>
