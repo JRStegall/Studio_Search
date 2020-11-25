@@ -19,7 +19,7 @@ function Navigate(){
     height="30"
     className="d-inline-block align-top"
   />
-  <Navbar.Brand href="./Home.js">Sessions</Navbar.Brand>
+  <Navbar.Brand as={Link} to="./Home.js">Sessions</Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
