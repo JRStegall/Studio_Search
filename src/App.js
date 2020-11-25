@@ -33,7 +33,7 @@ function App() {
           <Route path="/search" component={Search}/>
           <Route path="/chat" component={Chat}/> */}
 
-          <Route exact path="/"><Home  /> </Route> 
+           
           <Route path="/login" > <Login /> </Route>
           <Route path="/register"> <Register /> </Route> 
           <Route path="/recording"> <Recording/> </Route> 
@@ -42,7 +42,7 @@ function App() {
           <Route path="/production"> <Production /> </Route> 
           <Route path="/search"> <Search /> </Route> 
           <Route path="/chat"> <Chat /> </Route>
-   
+          <Route path="/"><Home  /> </Route>
   
         </Switch>
         
