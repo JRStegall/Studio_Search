@@ -24,12 +24,12 @@ function App() {
         <Navigate />
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/recording" component={Recording} />
-          <Route path="/rehearsal" component={Rehearsal} />
+          <Route path="/recording" exact component={Recording} />
+          <Route path="/rehearsal" exact component={Rehearsal} />
           <Route path="/dance" component={Dance} />
           <Route path="/production" component={Production} />
-          <Route path="/login" component={Login}/>
-          <Route path="/register" component={Register}/>
+          <Route path="/login" exact component={Login}/>
+          <Route path="/register" exact component={Register}/>
           <Route path="/search" component={Search}/>
           <Route path="/chat" component={Chat}/>
 
