@@ -20,7 +20,7 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
+     
         <Navigate />
         <Switch>
           <Route path="/" component={Home} />
@@ -34,7 +34,7 @@ function App() {
           <Route path="/chat" component={Chat}/>
 
    
-          <div className="container">
+          {/* <div className="container">
             <div className="row">
               <div className="col-lg-12">
                 <Home/>
@@ -46,10 +46,10 @@ function App() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </Switch>
         {/* <Footer /> */}
-      </div>
+     
     </Router>
   );
 }
