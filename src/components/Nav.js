@@ -2,6 +2,7 @@ import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
 // import Form from 'react-bootstrap/Form';
 // import FormControl from 'react-bootstrap/FormControl';
 // import Button from 'react-bootstrap/Button';
@@ -23,7 +24,7 @@ function Navigate(){
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
       
-      <Nav.Link className="link" href="/register">Register</Nav.Link>
+      <Nav.Link as={Link} className="link" href="/register">Register</Nav.Link>
       <Nav.Link className="link" href="/login">Log In</Nav.Link>
       <Nav.Link className="link" href="/search">Search</Nav.Link>
       <Nav.Link className="link" href="/chat">Chat</Nav.Link>
