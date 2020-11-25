@@ -11,6 +11,7 @@ import Register from './components/Register';
 import Search from './components/Search';
 import Chat from './components/Chat';
 import './App.css';
+import './_redirects.txt';
 
 
 
