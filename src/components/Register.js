@@ -5,6 +5,7 @@ import Axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 
 function Register() {
@@ -164,7 +165,7 @@ function Register() {
                         Register
             </Button>
 
-             <Button className="loginbtn" variant="primary" type="submit"><a href="./login">Log In</a>
+             <Button className="loginbtn" variant="primary" type="submit"><Link to="./login">Log In</Link>
             </Button>
 
                 </Form>
