@@ -23,32 +23,29 @@ function App() {
       <div className="App">
         <Navigate />
         <Switch>
-          <Route path="/" component={Home} />
-          <Route path="/recording"><Recording/></Route>
-          <Route path="/rehearsal" exact component={Rehearsal} />
+          {/* <Route path="/" component={Home} />
+          <Route path="/recording" component={Recording} />
+          <Route path="/rehearsal" component={Rehearsal} />
           <Route path="/dance" component={Dance} />
           <Route path="/production" component={Production} />
-          <Route path="/login" exact component={Login}/>
-          <Route path="/register" exact component={Register}/>
+          <Route path="/login" component={Login}/>
+          <Route path="/register" component={Register}/>
           <Route path="/search" component={Search}/>
-          <Route path="/chat" component={Chat}/>
+          <Route path="/chat" component={Chat}/> */}
 
+          <Route exact path="/"><Home  /> </Route> 
+          <Route path="/login" > <Login /> </Route>
+          <Route path="/register"> <Register /> </Route> 
+          <Route path="/recording"> <Recording/> </Route> 
+          <Route path="/rehearsal"> <Rehearsal/> </Route>
+          <Route path="/dance"> <Dance /> </Route> 
+          <Route path="/production"> <Production /> </Route> 
+          <Route path="/search"> <Search /> </Route> 
+          <Route path="/chat"> <Chat /> </Route>
    
-          {/* <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
-                <Home/>
-              </div>
-
-              <div className="row">
-                <div className="col-8">
-                <Login />
-                </div>
-              </div>
-            </div>
-          </div> */}
+  
         </Switch>
-        {/* <Footer /> */}
+        
       </div>
     </Router>
   );
