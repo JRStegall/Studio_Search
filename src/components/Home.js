@@ -12,10 +12,10 @@ function Home() {
         <p>Find studio space that fits your needs and budget from the palm of your hand!</p>
         
         <Button variant="primary" type="submit">
-                        <a href="./register">Register</a> 
+                        <a href="/register">Register</a> 
             </Button>
 
-             <Button className="loginbtn" variant="primary" type="submit"><a href="./login">Log In</a>
+             <Button className="loginbtn" variant="primary" type="submit"><a href="/login">Log In</a>
             </Button>
 
         </div>
