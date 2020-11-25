@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 function Home() {
 
     return(
-        <div className="home">
+        <div className="container">
             <i className="fas fa-headphones-alt fa-7x"></i>
         <h1>Sessions</h1>
         <p>Find studio space that fits your needs and budget from the palm of your hand!</p>
