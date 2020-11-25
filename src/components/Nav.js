@@ -24,7 +24,7 @@ function Navigate(){
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
       
-      <Nav.Link as={Link} className="link" href="/register">Register</Nav.Link>
+      <Nav.Link as={Link} className="link" to="/register">Register</Nav.Link>
       <Nav.Link className="link" href="/login">Log In</Nav.Link>
       <Nav.Link className="link" href="/search">Search</Nav.Link>
       <Nav.Link className="link" href="/chat">Chat</Nav.Link>
