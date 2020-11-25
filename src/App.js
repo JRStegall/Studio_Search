@@ -20,7 +20,7 @@ function App() {
 
   return (
     <Router>
-     
+      <div className="App">
         <Navigate />
         <Switch>
           <Route path="/" component={Home} />
@@ -49,7 +49,7 @@ function App() {
           </div> */}
         </Switch>
         {/* <Footer /> */}
-     
+      </div>
     </Router>
   );
 }
