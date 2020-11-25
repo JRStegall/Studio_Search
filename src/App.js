@@ -23,8 +23,8 @@ function App() {
       <div className="App">
         <Navigate />
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/recording" exact component={Recording} />
+          <Route path="/" component={Home} />
+          <Route path="/recording"><Recording/></Route>
           <Route path="/rehearsal" exact component={Rehearsal} />
           <Route path="/dance" component={Dance} />
           <Route path="/production" component={Production} />
