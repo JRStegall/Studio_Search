@@ -20,8 +20,8 @@ function App() {
 
 
   return (
+    <div className="App">
     <Router>
-      <div className="App">
         <Navigate />
         <Switch>
           <Route path="/recording" component={Recording} />
