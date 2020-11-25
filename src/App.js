@@ -21,8 +21,9 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navigate />
+        
         <Switch>
+        <Navigate />
           <Route path="/recording" component={Recording} />
           <Route path="/rehearsal" component={Rehearsal} />
           <Route path="/dance" component={Dance} />
