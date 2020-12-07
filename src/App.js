@@ -33,23 +33,8 @@ function App() {
           <Route path="/search" component={Search}/>
           <Route path="/chat" component={Chat}/>
           <Route path="/" component={Home} />
-
-
-           
-          {/* <Route path="/login" > <Login /> </Route>
-          <Route path="/register"> <Register /> </Route> 
-          <Route path="/recording"> <Recording/> </Route> 
-          <Route path="/rehearsal"> <Rehearsal/> </Route>
-          <Route path="/dance"> <Dance /> </Route> 
-          <Route path="/production"> <Production /> </Route> 
-          <Route path="/search"> <Search /> </Route> 
-          <Route path="/chat"> <Chat /> </Route>
-          <Route path="/"><Home  /> </Route> */}
-  
         </Switch>
         
-     
-    {/* </Router> */}
     </div>
   );
 }
